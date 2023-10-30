@@ -14,8 +14,9 @@ Features Added:
   * Check the check-box next to the add-on to activate it.
   * Once install is active, the add-on window can be found under Scene > Batch Exporter (Shown in visual aid below).
  
-  ![batch-exporter-visual-instructions](https://github.com/sheamkennedy/blender_batch_exporter/assets/13323856/434360cb-0e2f-4ead-b915-ee045ccd1e43)
+  ![batch-exporter-visual-instructions](https://github.com/sheamkennedy/blender_batch_exporter/assets/13323856/d40e294c-8e23-407e-bf64-5a9ade64ded1)
 
+  
 ## Batch Exporter Configuration
 
 The add-on can be found in the *Scene Properties* tab in Blender.
