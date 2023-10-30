@@ -1,6 +1,11 @@
 # Copyright 2022 by Hextant Studios. https://HextantStudios.com
 # This work is licensed under GNU General Public License Version 3.
 # License: https://download.blender.org/release/GPL3-license.txt
+# Modified by Shea Kennedy Oct. 2023.
+# The following modifications were made:
+#
+#
+#
 
 import os, bpy
 from pathlib import Path
