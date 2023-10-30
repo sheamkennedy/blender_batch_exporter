@@ -3,8 +3,9 @@
 # License: https://download.blender.org/release/GPL3-license.txt
 # Modified by Shea Kennedy, Oct. 30 2023.
 # Modifications made:
+# --- Changed export settings to have tangents and vertex colors enabled by default.
+# --- Added a textfield for the user to input a filename prefix which is prepend to the start of each exported file.
 # --- Added a textfield for the user to input a filename suffix which is appended to the end of each exported file.
-
 
 
 import os
@@ -155,10 +156,15 @@ def export(context, preferences, objects, report=None) -> bool:
             # Select the exported object hierarchy.
             select_exportable(object)
 
-            # Build the exported filename with the export suffix
+            # Build the exported filename with the export prefix
             name = bpy.path.clean_name(object.name)
+            export_prefix = bpy.path.clean_name(preferences.export_prefix)
             export_suffix = bpy.path.clean_name(preferences.export_suffix)
-            filename = f"{name}{export_suffix}" if export_suffix else name
+            # Modified this line
+            # filename = f"{export_prefix}{name}{export_suffix}" if export_prefix else if f"{export_prefix}{name}{export_suffix}" if export_suffix else name
+            # filename = f"{export_prefix}{name}{export_suffix}" if export_prefix else (
+            #     f"{export_prefix}{name}{export_suffix}" if export_suffix else name)
+            filename = f"{export_prefix}{name}{export_suffix}.{preferences.format_type}" if export_prefix or export_suffix else f"{name}.{preferences.format_type}"
             filepath = os.path.join(export_directory, filename)
 
             # Get a parameter-dictionary from the preferences.
@@ -242,6 +248,15 @@ class BatchExportPreferences(PropertyGroup):
                                        description="Resets the location, rotation, and scale of root objects")
 
     ###
+    # Add a text field for the export prefix
+    export_prefix: StringProperty(
+        name="Export Prefix",
+        default="",
+        description="A prefix to prepend to exported filenames"
+    )
+
+    ###
+    # Add a text field for the export suffix
     export_suffix: StringProperty(
         name="Export Suffix",
         default="",
@@ -302,9 +317,9 @@ class GltfBatchExportPreferences(PropertyGroup):
                                    description="Export texture coordinates per vertex")
     export_normals: BoolProperty(name="Normals", default=True,
                                  description="Export normals per vertex")
-    export_tangents: BoolProperty(name="Tangents", default=False,
+    export_tangents: BoolProperty(name="Tangents", default=True,
                                   description="Export tangents per vertex")
-    export_colors: BoolProperty(name="Vertex Colors", default=False,
+    export_colors: BoolProperty(name="Vertex Colors", default=True,
                                 description="Export colors per vertex")
     export_apply: BoolProperty(name="Apply Modifiers", default=True,
                                description="Applies modifiers before exporting. (Prevents shape key export if True)")
@@ -439,6 +454,10 @@ class BatchExporterPanel(Panel):
 
         # Additional common preferences.
         layout.prop(preferences, 'reset_root_transform')
+
+        ###
+        # Add a text field for the export prefix
+        layout.prop(preferences, 'export_prefix')
 
         ###
         # Add a text field for the export suffix
