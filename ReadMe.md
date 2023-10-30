@@ -12,6 +12,9 @@ Features Added:
   * *Edit / Preferences*
   * Click the *Install* button and select the downloaded zip file.
   * Check the check-box next to the add-on to activate it.
+  * Once install is active, the add-on window can be found under Scene > Batch Exporter (Shown in visual aid below).
+ 
+  ![batch-exporter-visual-instructions](https://github.com/sheamkennedy/blender_batch_exporter/assets/13323856/434360cb-0e2f-4ead-b915-ee045ccd1e43)
 
 ## Batch Exporter Configuration
 
