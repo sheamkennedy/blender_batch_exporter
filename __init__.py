@@ -5,10 +5,11 @@
 # Modifications made:
 # --- Changed bl_info to reflect project branch.
 
+import bpy
 bl_info = {
     "name": "Batch Exporter",
-    "author": "Doffu",
-    "version": (1, 0, 0),
+    "author": "Doffu (Shea Kennedy) + Hextant Studios",
+    "version": (1, 0, 1),
     "blender": (3, 2, 0),
     "location": "Scene > Batch Exporter",
     "description": "A batch exporter which currently supports glTF and FBX formats.",
@@ -16,7 +17,6 @@ bl_info = {
     "category": "Import-Export",
 }
 
-import bpy
 
 # Include *all* modules in this package for proper reloading.
 #   * All modules *must* have a register() and unregister() method!
