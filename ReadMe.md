@@ -7,7 +7,7 @@ Features Added:
 
 ## Installation
 
-* Download the latest release from [here](#) or clone it using Git to your custom Blender `...\scripts\addons\` folder.
+* Download the latest release from [here](https://github.com/sheamkennedy/blender_batch_exporter/releases/tag/doffu-batch-exporter) or clone it using Git to your custom Blender `...\scripts\addons\` folder.
 * From Blender's Main Menu:
   * *Edit / Preferences*
   * Click the *Install* button and select the downloaded zip file.
